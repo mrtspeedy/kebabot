@@ -30,7 +30,7 @@
 - Go (>= 1.27.1 Recommended)
 - DisGo
 - GoDotEnv
-- pgx/v5/pgxpool
+- pgx/v5
 - An SQL Database (PostgreSQL Recommended, any others work too.)
 - SQLC (>= 1.31.1 Recommended)
 - Goose (>= 3.28.0 Recommended)
@@ -40,7 +40,7 @@
 1. Create a database using your preferred SQL database.
 2. Add the database URL to the `env.example` with format: `postgres://username:password@localhost:5432/kebabot`.
 
-> [!INFO]
+> [!IMPORTANT]
 > Replace username:password with the username and password you have for your SQL database. Replace localhost:5432 with whatever address and port you are running your database server off of. Replace kebabot with the name of the database. Replace "postgres" with whatever database you are using. Keep in mind, SQLite uses: `sqlite:///kebabot.db` format instead, no need for username, password, address or port!
 
 3. Complete the rest of the env and rename `env.example` to `.env`.
@@ -50,7 +50,7 @@
 go mod tidy
 ```
 
-> [!INFO]
+> [!NOTE]
 > The below command is optional. It copies all dependencies into the `vendor/` folder, which has been excluded from git as dependencies can be pretty large in size at times, and it helps keep the repository cleaner. Keep in mind to run the command every so often to keep dependencies up to date.
 
 ```bash
