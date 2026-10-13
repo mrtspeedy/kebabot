@@ -64,7 +64,7 @@ If `DevGuilds` is populated, split them by commas, then parse them as Discord sn
 for _, part := range strings.Split(raw, ",") {
     id, err := snowflake.Parse(strings.TrimSpace(part))
     if err != nil {
-        return nilm fmt.Errorf("invalid guild id %q in DEV_GUILD_IDS: %w", part, err)
+        return nil fmt.Errorf("invalid guild id %q in DEV_GUILD_IDS: %w", part, err)
     }
 
     cfg.DevGuilds = append(cfg.DevGuild id)
