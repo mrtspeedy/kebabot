@@ -51,7 +51,7 @@ go get github.com/jackc/pgx/v5
 2. Add the database URL to the `env.example` with format: `postgres://username:password@localhost:5432/kebabot`.
 
 > [!IMPORTANT]
-> Replace `username:password` with the username and password you have for your SQL database. Replace `localhost:5432` with whatever address and port you are running your database server off of. Replace kebabot with the name of the database. Replace `postgres` with whatever database you are using. Keep in mind, SQLite uses: `sqlite:///kebabot.db` format instead; no need for username, password, address or port!
+> Replace `username:password` with the username and password you have for your SQL database. Replace `localhost:5432` with whatever address and port you are running your database server off of. Replace `kebabot` with the name of the database. Replace `postgres` with whatever database you are using. Keep in mind, SQLite uses: `sqlite:///kebabot.db` format instead; no need for username, password, address or port!
 
 3. Complete the rest of the env and rename `env.example` to `.env`.
 4. Run the below commands.
@@ -98,7 +98,7 @@ This is the file where the configuration for the bot is loaded, the connection t
 
 #### [func main()](main.go.md#func-main)
 
-The main function serves a small purpose. It calls the `run` function and handles any errors produced by it.
+The main function serves a small purpose. It calls the `run()` function and handles any errors produced by it.
 
 #### [func run()](main.go.md#func-run)
 
@@ -123,3 +123,19 @@ This function syncs the commands to Discord, and then opens the gateway connecti
 #### [func Close()](bot.go.md#func-close)
 
 This function simply closes the gateway connection gracefully.
+
+### [internal/config/config.go](config.go.md)
+
+This is where the `.env` is read and all the configurations are stored in the `cfg` variable.
+
+#### [type Config struct](config.go.md#type-config-struct)
+
+This struct stores all the values that can be read from the `.env`. If any new values are added, this structure is to be changed to accomodate the new variable.
+
+#### [func Load()](config.go.md#func-load)
+
+This function loads in the `.env` and assigns its values in the `cfg` variable of type Config struct. It also validates whether the toke is valid, and whether **all** the entered `DevGuild` IDs are valid too. It then also sets the log level.
+
+#### [func envBool()](config.go.md#func-envbool)
+
+This function returns a boolean from the `.env`. It validates whether it exists and is valid, and accepts values: `true`, `false`, `1`, `0`, `t`, `f`. If invalid, it falls back to the default which must be given.

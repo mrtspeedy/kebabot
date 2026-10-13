@@ -42,7 +42,7 @@ opts := []disgobot.ConfigOpt{
 ```
 
 > [!NOTE]
-> The below only applies if you enable the Message Content intent on both Discord **AND** in the `.env`
+> The below only applies if you enable the Message Content Intent on both Discord **AND** in the `.env`.
 
 If applicable, the Message Content Intent is appended to both the intents and the listener so that the bot knows it is to listen for new message creations.
 ```go
@@ -62,7 +62,7 @@ client, err := disgo.New(cfg.Token, opts...)
 
 ## `func Start()`
 
-If syncing commands is enabled in the `.env`, this function will first sync the commands. If any DevGuilds are specified, commands will be synced there rather than globally.
+If syncing commands is enabled in the `.env`, this function will first sync the commands. If any `DevGuilds` are specified, commands will be synced there rather than globally.
 ```go
 handler.SyncCommands(b.Client, commands.Definitions, b.cfg.DevGuilds)
 ```

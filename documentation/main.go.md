@@ -25,7 +25,7 @@ Context is loaded, which will listen for a kill signal such as CTRL+C to stop th
 ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 ```
 
-The db url stored in the cfg is then checked to see if it is empty.
+The db url stored in the `cfg` is then checked to see if it is empty.
 ```go
 if cfg.DatabaseURL != ""
 ```
@@ -48,7 +48,7 @@ defer func() {
     b.Close(closeCtx)
 }
 ```
-`closeCtx` is needed here as ctx is already closed by the time this function is deferred.
+`closeCtx` is needed here as `ctx` is already closed by the time this function is deferred.
 
 After the bot is created, the bot is then started and commands are synced to Discord. If any error is recieved, the bot start stops.
 ```go

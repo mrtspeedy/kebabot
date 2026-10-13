@@ -29,7 +29,7 @@ func Load() (*Config, error) {
 
 	cfg := &Config{
 		Token:          os.Getenv("DISCORD_TOKEN"),               // Discord token from the env variables
-		SyncCommands:   envBool("SYNC_COMMAND", true),            // Whether or not to sync commands on startup, default true
+		SyncCommands:   envBool("SYNC_COMMANDS", true),           // Whether or not to sync commands on startup, default true
 		MessageContent: envBool("ENABLE_MESSAGE_CONTENT", false), // Whether or not to enable Message Content Intent, default false
 		DatabaseURL:    os.Getenv("DATABASE_URL"),                // Database url from env
 	}
