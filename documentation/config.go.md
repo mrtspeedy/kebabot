@@ -71,7 +71,7 @@ for _, part := range strings.Split(raw, ",") {
 }
 ```
 
-Use a switch statement to check what log level has been selected in the `.env`, falling back to Info level if an invalid level is given.
+Use a switch statement to check what log level has been selected in the `.env`, falling back to Info level if an invalid level is given. Debug, Info, Warn, Error (Most to Least Verbose).
 ```go
 switch strings.ToLower(os.Getenv("LOG_LEVEL")) {
     case "debug":
